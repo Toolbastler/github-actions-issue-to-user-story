@@ -9,6 +9,8 @@ jobs:
   alert:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.5.0
       - uses:  Toolbastler/github-actions-issue-to-user-story@master
         env:
           ado_token: "${{ secrets.ADO_PERSONAL_ACCESS_TOKEN }}"
@@ -23,6 +25,6 @@ jobs:
           ado_bypassrules: true
           # define the list of label/tags of the issue to be processed
           # github_labels_whitelist: [ "User Story", "US", "Story" ]
-          github_labels_whitelist: "User Story, US, Story"
+          github_labels_whitelist: "User Story, Support Story"
           # for debugging purpose
           log_level: 100
