@@ -1,3 +1,5 @@
-function SayHelloWorld(){
-  return "Hallo Welt!";
+module.exports = {
+  sayHelloWorld: function() {
+    return "Hallo Welt!";
+  }
 }

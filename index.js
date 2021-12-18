@@ -12,7 +12,7 @@ main();
 async function main() {
   if (debug) console.log('WARNING! You are in debug mode');
   
-  console.log(patchDocument.SayHelloWorld());
+  console.log(patchDocument.sayHelloWorld());
 
   try {
     const context = github.context;
