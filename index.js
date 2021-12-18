@@ -1,9 +1,8 @@
-import * from './src/patchDocument.mjs';
-import * from './src/action.mjs'
-
 const core = require(`@actions/core`);
 const github = require(`@actions/github`);
 const azdev = require(`azure-devops-node-api`);
+
+const patchDocument = require("./src/patchDocument")
 
 const debug = false; // debug mode for testing...always set to false before doing a commit
 const testPayload = []; // used for debugging, cut and paste payload
@@ -13,9 +12,7 @@ main();
 async function main() {
   if (debug) console.log('WARNING! You are in debug mode');
   
-  console.log(SayHelloWorld());
-
-  console.log(runHelloWorldAsync());
+  console.log(patchDocument.SayHelloWorld());
 
   try {
     const context = github.context;
