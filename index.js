@@ -43,7 +43,7 @@ async function main() {
       return;
     }
 
-    if (vm.label != undefined && vm.label.indexOf(env.ado_wit)) {
+    if (vm.label != undefined && vm.label.indexOf(env.ado_wit) > -1) {
       console.log(`User story label found ${vm.label}`);
     } else {
       console.log(`User story label not found, exiting action`);
