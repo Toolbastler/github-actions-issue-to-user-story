@@ -1,3 +1,6 @@
+import * from './src/patchDocument.js';
+import * from './src/action'
+
 const core = require(`@actions/core`);
 const github = require(`@actions/github`);
 const azdev = require(`azure-devops-node-api`);
@@ -11,6 +14,8 @@ async function main() {
   if (debug) console.log('WARNING! You are in debug mode');
   
   console.log(SayHelloWorld());
+
+  console.log(runHelloWorldAsync());
 
   try {
     const context = github.context;
