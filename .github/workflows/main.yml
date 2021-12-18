@@ -22,11 +22,7 @@ jobs:
           ado_close_state: "Closed"
           ado_bypassrules: true
           # define the list of label/tags of the issue to be processed
-          github_labels_whitelist: 
-            - "User Story"
-            - "US"
-            - "Story"
-            - ":-)"
-
+          # github_labels_whitelist: [ "User Story", "US", "Story" ]
+          github_labels_whitelist: "User Story, US, Story"
           # for debugging purpose
           log_level: 100
