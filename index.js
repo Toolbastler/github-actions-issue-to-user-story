@@ -23,6 +23,7 @@ async function main() {
       env.github_token = "{github token}";
       env.ado_project = "{project name}";
       env.ado_wit = "User Story";
+      //env.labelToObserver = 
       env.ado_close_state = "Closed";
       env.ado_active_state = "Active";
       env.ado_new_state = "New";
@@ -39,6 +40,13 @@ async function main() {
     // nothing needs to be done
     if (vm.sender_login === "azure-boards[bot]") {
       console.log(`azure-boards[bot] sender, exiting action`);
+      return;
+    }
+
+    if (vm.label != undefined && vm.label.indexOf(env.ado_wit)) {
+      console.log(`User story label found ${vm.label}`);
+    } else {
+      console.log(`User story label not found, exiting action`);
       return;
     }
 
