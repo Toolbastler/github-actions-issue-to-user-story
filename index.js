@@ -1,5 +1,5 @@
-import * from './src/patchDocument.js';
-import * from './src/action'
+import * from './src/patchDocument.mjs';
+import * from './src/action.mjs'
 
 const core = require(`@actions/core`);
 const github = require(`@actions/github`);
