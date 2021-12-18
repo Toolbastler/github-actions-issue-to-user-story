@@ -1,9 +1,9 @@
-name: "GitHub Issues to Azure DevOps"
-description: "This action will Sync your GitHub Issue to Azure Boards when an Issue is created or updated"
-author: "danhellem"
+name: "GitHub Issues to Azure DevOps as User Stories"
+description: "This action will sync GitHub Issues to Azure Boards based on their assigned label. Only issues with the configured label will be taken into account."
+author: "danhellem (Toolbastler)"
 branding:
   icon: "book-open"
-  color: "green"
+  color: "orange"
 outputs:
   id:
     description: "id of work item created"
