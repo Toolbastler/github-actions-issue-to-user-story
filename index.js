@@ -10,6 +10,8 @@ main();
 async function main() {
   if (debug) console.log('WARNING! You are in debug mode');
   
+  console.log(SayHelloWorld());
+
   try {
     const context = github.context;
     const env = process.env;
@@ -21,9 +23,8 @@ async function main() {
       env.ado_organization = "{organization}";
       env.ado_token = "{azure devops personal access token}";
       env.github_token = "{github token}";
-      env.ado_project = "{project name}";
-      env.ado_wit = "User Story";
-      //env.labelToObserver = 
+      env.ado_project = "{project name}";      
+      env.github_labels_whitelist = ["User Story"];
       env.ado_close_state = "Closed";
       env.ado_active_state = "Active";
       env.ado_new_state = "New";
@@ -36,6 +37,9 @@ async function main() {
       vm = getValuesFromPayload(github.context.payload, env);
     }    
 
+    // setting removed from env config (for the moment)
+    env.ado_wit = "User Story";
+
     // if the sender in the azure-boards bot, then exit code
     // nothing needs to be done
     if (vm.sender_login === "azure-boards[bot]") {
@@ -43,7 +47,8 @@ async function main() {
       return;
     }
 
-    if (vm.label != undefined && vm.label.indexOf(env.ado_wit) > -1) {
+    // check if there is a label with the configured caption
+    if (vm.label != undefined && vm.label.indexOf(env.configured_label) > -1) {
       console.log(`User story label found ${vm.label}`);
     } else {
       console.log(`User story label not found, exiting action`);
