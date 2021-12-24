@@ -8,9 +8,14 @@ on:
 jobs:
   alert:
     runs-on: ubuntu-latest
-    steps:
+    steps:      
+      - name: Test
+        run: |
+          echo $GITHUB_EVENT_PATH
+          echo $GITHUB_WORKFLOW
+          echo $GITHUB_REF          
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2.5.0
+        uses: actions/setup-node@v2.5.0        
       - uses:  Toolbastler/github-actions-issue-to-user-story@master
         env:
           ado_token: "${{ secrets.ADO_PERSONAL_ACCESS_TOKEN }}"
