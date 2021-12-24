@@ -12,11 +12,7 @@ jobs:
       - name: Test
         run: |
           echo $GITHUB_EVENT_PATH
-          cat $GITHUB_EVENT_PATH
-          echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
-          cat $GITHUB_EVENT_PATH >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV
-          echo $GITHUB_ENV
+          cat $GITHUB_EVENT_PATH  
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.5.0        
       - uses:  Toolbastler/github-actions-issue-to-user-story@master
